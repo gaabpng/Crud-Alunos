@@ -1,0 +1,7 @@
+settings.py
+/.vs
+/app/migrations
+/app/__pycache__
+/app/__init__.py
+/Crud_django/__pycache__
+/Crud_django/__init__.py

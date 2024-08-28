@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+  <title>Crud Alunos</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+    <div class="container-xl">
+      <a class="navbar-brand" href="{% url 'home' %}">Gerenciamento de Alunos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL"
+        aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07XL">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'adicionar_aluno' %}">Adicionar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'listar_aluno' %}">Listar</a>
+          </li>
+          <li>
+            <a style="font-size: 6px; color: #212529;" class="nav-link active" aria-current="page" href="https://static.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest/scale-to-width/360?cb=20120620012441">Cap'n Cook</a>
+          </li>
+
+      </div>
+    </div>
+  </nav>
+  <div style="padding-left: 100; padding-right: 100; padding-top: 50;">
+    <div class="bd-example">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nota da P1</th>
+            <th scope="col">Nota da P2</th>
+            <th scope="col">Nota do Trabalho</th>
+            <th scope="col">Média</th>
+            <th scope="col">#</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for aluno in alunos %}
+          <tr>
+            <td>{{aluno.id_aluno}}</td>
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.matricula}}</td>
+            <td>{{aluno.nota_p1}}</td>
+            <td>{{aluno.nota_p2}}</td>
+            <td>{{aluno.nota_trabalho}}</td>
+            <td>{{aluno.media}}</td>
+            <td>
+              <div style="display: flex;">
+                <form action="{% url 'deletar_aluno' aluno.id_aluno %}" method="post" style="padding-right: 10;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-outline-danger btn-sm">Apagar Aluno</button>
+                </form>
+                <form action="">
+                  <button type="submit" class="btn btn-outline-warning btn-sm">Editar Aluno</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
