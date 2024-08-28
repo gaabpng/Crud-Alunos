@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'Crud_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'public.alunos',
+        'NAME': 'alunos',
         'USER': 'admin',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
