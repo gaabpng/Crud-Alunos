@@ -1,4 +1,3 @@
-settings.py
 /.vs
 /app/migrations
 /app/__pycache__
