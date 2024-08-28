@@ -72,14 +72,15 @@ WSGI_APPLICATION = 'Crud_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'alunos',
-        'USER': 'user',
-        'PASSWORD': '1234567890',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
-        'PORT': '3306'
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation
