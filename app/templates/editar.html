@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <title>Editar Aluno</title>
+</head>
+<body class="text-center">
+  <div class="bd-example">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+      <div class="container-xl">
+        <a class="navbar-brand" href="{% url 'home' %}">Gerenciamento de Alunos</a>
+        <div class="collapse navbar-collapse" id="navbarsExample07XL">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'adicionar_aluno' %}">Adicionar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'listar_aluno' %}">Listar</a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL"
+          aria-controls="navbarsExample07XL" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="form-signin">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-floating" style="padding-bottom: 4px;">
+        <input name="nome" type="text" class="form-control" id="floatingPassword" placeholder="Nome do Aluno" value="{{ aluno.nome }}">
+        <label for="floatingPassword">Nome do Aluno</label>
+      </div>
+      <div class="form-floating" style="padding-bottom: 4px;">
+        <input name="matricula" type="text" class="form-control" id="floatingInput" placeholder="Matrícula do aluno" value="{{ aluno.matricula }}">
+        <label for="floatingInput">Matrícula do aluno</label>
+      </div>
+      <div class="form-floating" style="padding-bottom: 4px;">
+        <input name="nota_p1" type="text" class="form-control" id="floatingInput" placeholder="Nota da 1ª avaliação" value="{{ aluno.nota_p1 }}">
+        <label for="floatingInput">Nota da 1ª avaliação</label>
+      </div>
+      <div class="form-floating" style="padding-bottom: 4px;">
+        <input name="nota_p2" type="text" class="form-control" id="floatingInput" placeholder="Nota da 2ª avaliação" value="{{ aluno.nota_p2 }}">
+        <label for="floatingInput">Nota da 2ª avaliação</label>
+      </div>
+      <div class="form-floating" style="padding-bottom: 4px;">
+        <input name="nota_trabalho" type="text" class="form-control" id="floatingInput" placeholder="Nota do Trabalho" value="{{ aluno.nota_trabalho }}">
+        <label for="floatingInput">Nota do Trabalho</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Salvar Alterações</button>
+    </form>
+  </main>
+</body>
+</html>

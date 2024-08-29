@@ -29,7 +29,9 @@
             <a class="nav-link active" aria-current="page" href="{% url 'listar_aluno' %}">Listar</a>
           </li>
           <li>
-            <a style="font-size: 6px; color: #212529;" class="nav-link active" aria-current="page" href="https://static.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest/scale-to-width/360?cb=20120620012441">Cap'n Cook</a>
+            <a style="font-size: 6px; color: #212529;" class="nav-link active" aria-current="page"
+              href="https://static.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest/scale-to-width/360?cb=20120620012441">Cap'n
+              Cook</a>
           </li>
 
       </div>
@@ -67,7 +69,7 @@
                   {% csrf_token %}
                   <button type="submit" class="btn btn-outline-danger btn-sm">Apagar Aluno</button>
                 </form>
-                <form action="">
+                <form action="{% url 'editar_aluno' aluno.id_aluno %}" method="get">
                   <button type="submit" class="btn btn-outline-warning btn-sm">Editar Aluno</button>
                 </form>
               </div>
